@@ -1,0 +1,47 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "services": {
+    "omar-ai-ui": {
+      "source": {
+        "directory": "packages/omar-ai-ui"
+      },
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "Dockerfile",
+        "context": "packages"
+      },
+      "deploy": {
+        "numReplicas": 1,
+        "sleepApplication": false
+      }
+    },
+    "omar-ai-agent": {
+      "source": {
+        "directory": "packages/omar-ai-agent"
+      },
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "Dockerfile",
+        "context": "packages"
+      },
+      "deploy": {
+        "numReplicas": 1,
+        "sleepApplication": false
+      }
+    },
+    "omar-ai-desktop": {
+      "source": {
+        "directory": "packages/omar-aid"
+      },
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "Dockerfile",
+        "context": "packages"
+      },
+      "deploy": {
+        "numReplicas": 1,
+        "sleepApplication": false
+      }
+    }
+  }
+}

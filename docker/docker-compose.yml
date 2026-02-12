@@ -47,7 +47,7 @@ services:
       - "9991:9991"
     environment:
       - DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/omar-aidb}
-      - BYTEBOT_DESKTOP_BASE_URL=${BYTEBOT_DESKTOP_BASE_URL:-http://omar-ai-desktop:9990}
+      - OMAR_AI_DESKTOP_BASE_URL=${OMAR_AI_DESKTOP_BASE_URL:-http://omar-ai-desktop:9990}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
@@ -61,8 +61,8 @@ services:
       context: ../packages/
       dockerfile: omar-ai-ui/Dockerfile
       args:
-        - BYTEBOT_AGENT_BASE_URL=${BYTEBOT_AGENT_BASE_URL:-http://omar-ai-agent:9991}
-        - BYTEBOT_DESKTOP_VNC_URL=${BYTEBOT_DESKTOP_VNC_URL:-http://omar-ai-desktop:9990/websockify}
+        - OMAR_AI_AGENT_BASE_URL=${OMAR_AI_AGENT_BASE_URL:-http://omar-ai-agent:9991}
+        - OMAR_AI_DESKTOP_VNC_URL=${OMAR_AI_DESKTOP_VNC_URL:-http://omar-ai-desktop:9990/websockify}
     # Use pre-built image
     image: ghcr.io/omar-ai-ai/omar-ai-ui:edge
     container_name: omar-ai-ui
@@ -71,8 +71,8 @@ services:
       - "9992:9992"
     environment:
       - NODE_ENV=production
-      - BYTEBOT_AGENT_BASE_URL=${BYTEBOT_AGENT_BASE_URL:-http://omar-ai-agent:9991}
-      - BYTEBOT_DESKTOP_VNC_URL=${BYTEBOT_DESKTOP_VNC_URL:-http://omar-ai-desktop:9990/websockify}
+      - OMAR_AI_AGENT_BASE_URL=${OMAR_AI_AGENT_BASE_URL:-http://omar-ai-agent:9991}
+      - OMAR_AI_DESKTOP_VNC_URL=${OMAR_AI_DESKTOP_VNC_URL:-http://omar-ai-desktop:9990/websockify}
     depends_on:
       - omar-ai-agent
     networks:
