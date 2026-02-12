@@ -13,12 +13,15 @@ ENV OMAR_AI_DESKTOP_VNC_URL=${OMAR_AI_DESKTOP_VNC_URL}
 WORKDIR /app
 
 # Copy app source from context (packages)
-COPY ./shared ./shared
-COPY ./omar-ai-ui ./omar-ai-ui
+COPY ./shared /app/shared
+COPY ./omar-ai-ui /app/omar-ai-ui
 
+# Install shared dependencies and build it first
+WORKDIR /app/shared
+RUN npm install && npm run build
+
+# Install UI dependencies
 WORKDIR /app/omar-ai-ui
-
-# Install dependencies
 RUN npm install
 
 # Build the application

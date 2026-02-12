@@ -5,12 +5,15 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy app source from context (packages)
-COPY ./shared ./shared
-COPY ./omar-ai-agent ./omar-ai-agent
+COPY ./shared /app/shared
+COPY ./omar-ai-agent /app/omar-ai-agent
 
+# Install shared dependencies and build it first
+WORKDIR /app/shared
+RUN npm install && npm run build
+
+# Install Agent dependencies
 WORKDIR /app/omar-ai-agent
-
-# Install dependencies
 RUN npm install
 
 # Build the application
