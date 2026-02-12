@@ -1,47 +1,47 @@
-## docker-compose file that spins up a bytebot-desktop container
-## and a postgres container. bytebot-ui and bytebot-agent are not included
+## docker-compose file that spins up a omar-ai-desktop container
+## and a postgres container. omar-ai-ui and omar-ai-agent are not included
 ## in this file, and can be run separately using npm, allowing for
 ## easier local development.
 
-name: bytebot
+name: omar-ai
 
 services:
-  bytebot-desktop:
+  omar-ai-desktop:
     # Build from source
     build:
       context: ../packages/
-      dockerfile: bytebotd/Dockerfile
+      dockerfile: omar-aid/Dockerfile
     # Use pre-built image
-    image: ghcr.io/bytebot-ai/bytebot-desktop:edge
+    image: ghcr.io/omar-ai-ai/omar-ai-desktop:edge
     shm_size: "2g"
-    container_name: bytebot-desktop
+    container_name: omar-ai-desktop
     restart: unless-stopped
     hostname: computer
     privileged: true
     ports:
-      - "9990:9990" # bytebotd service & noVNC
+      - "9990:9990" # omar-aid service & noVNC
     environment:
       - DISPLAY=:0
     networks:
-      - bytebot-network
+      - omar-ai-network
 
   postgres:
     image: postgres:16-alpine
-    container_name: bytebot-postgres
+    container_name: omar-ai-postgres
     restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=bytebotdb
+      - POSTGRES_DB=omar-aidb
     networks:
-      - bytebot-network
+      - omar-ai-network
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
 networks:
-  bytebot-network:
+  omar-ai-network:
     driver: bridge
 
 volumes:

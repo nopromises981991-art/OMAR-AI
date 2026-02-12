@@ -1,6 +1,6 @@
-import { BytebotAgentModel } from '../agent/agent.types';
+import { OMAR AIAgentModel } from '../agent/agent.types';
 
-export const ANTHROPIC_MODELS: BytebotAgentModel[] = [
+export const ANTHROPIC_MODELS: OMAR AIAgentModel[] = [
   {
     provider: 'anthropic',
     name: 'claude-opus-4-1-20250805',

@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/bytebot-ai/bytebot-desktop
+  repository: ghcr.io/omar-ai-ai/omar-ai-desktop
   tag: edge
   pullPolicy: IfNotPresent
 
@@ -51,7 +51,7 @@ ingress:
   className: ""
   annotations: {}
   hosts:
-    - host: bytebot-desktop.local
+    - host: omar-ai-desktop.local
       paths:
         - path: /
           pathType: ImplementationSpecific

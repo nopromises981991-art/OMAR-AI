@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Bytebot Dockerfile - Virtual Desktop Environment
+# OMAR AI Dockerfile - Virtual Desktop Environment
 # -----------------------------------------------------------------------------
 
 # Base image
@@ -154,7 +154,7 @@ RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC \
     && pip3 install --break-system-packages .
 
 # -----------------------------------------------------------------------------
-# 5. Application setup (bytebotd)
+# 5. Application setup (omar-aid)
 # -----------------------------------------------------------------------------
 # Copy package files first to leverage Docker cache
 
@@ -174,9 +174,9 @@ RUN apt-get update && \
         git build-essential && \
     rm -rf /var/lib/apt/lists/*
 
-COPY ./shared/ /bytebot/shared/
-COPY ./bytebotd/ /bytebot/bytebotd/
-WORKDIR /bytebot/bytebotd
+COPY ./shared/ /omar-ai/shared/
+COPY ./omar-aid/ /omar-ai/omar-aid/
+WORKDIR /omar-ai/omar-aid
 RUN npm install --build-from-source
 RUN npm rebuild uiohook-napi --build-from-source
 
@@ -189,13 +189,13 @@ RUN git clone https://github.com/ZachJW34/libnut-core.git && \
     npm install && \
     npm run build:release
 
-# replace /bytebotd/node_modules/@nut-tree-fork/libnut-linux/build/Release/libnut.node with /compile/libnut-core/build/Release/libnut.node
-RUN rm -f /bytebot/bytebotd/node_modules/@nut-tree-fork/libnut-linux/build/Release/libnut.node && \
-    cp /compile/libnut-core/build/Release/libnut.node /bytebot/bytebotd/node_modules/@nut-tree-fork/libnut-linux/build/Release/libnut.node
+# replace /omar-aid/node_modules/@nut-tree-fork/libnut-linux/build/Release/libnut.node with /compile/libnut-core/build/Release/libnut.node
+RUN rm -f /omar-ai/omar-aid/node_modules/@nut-tree-fork/libnut-linux/build/Release/libnut.node && \
+    cp /compile/libnut-core/build/Release/libnut.node /omar-ai/omar-aid/node_modules/@nut-tree-fork/libnut-linux/build/Release/libnut.node
 
 RUN rm -rf /compile
 
-WORKDIR /bytebot/bytebotd
+WORKDIR /omar-ai/omar-aid
 
 # -----------------------------------------------------------------------------
 # 7. User setup and autologin configuration
@@ -207,21 +207,21 @@ RUN mkdir -p /var/run/dbus && \
     chmod 755 /var/run/dbus && \
     chown user:user /var/run/dbus
 
-RUN mkdir -p /tmp/bytebot-screenshots && \
-    chown -R user:user /tmp/bytebot-screenshots
+RUN mkdir -p /tmp/omar-ai-screenshots && \
+    chown -R user:user /tmp/omar-ai-screenshots
 
 # -----------------------------------------------------------------------------
 #  Copy staged system files and keep sane permissions
 # -----------------------------------------------------------------------------
-# 1. Ensure everything under /bytebotd/root is owned by root (files + dirs)
+# 1. Ensure everything under /omar-aid/root is owned by root (files + dirs)
 # 2. Set *files* to 0644 and *directories* to 0755 so that applications can
 #    traverse directories (execute bit!) while keeping the contents read-only.
 # 3. Copy the tree to /
-RUN chown -R root:root /bytebot/bytebotd/root && \
-    find /bytebot/bytebotd/root -type f -exec chmod 644 {} + && \
-    find /bytebot/bytebotd/root -type d -exec chmod 755 {} + && \
-    find /bytebot/bytebotd/root -type f -executable -exec chmod +x {} + && \
-    cp -a /bytebot/bytebotd/root/. /
+RUN chown -R root:root /omar-ai/omar-aid/root && \
+    find /omar-ai/omar-aid/root -type f -exec chmod 644 {} + && \
+    find /omar-ai/omar-aid/root -type d -exec chmod 755 {} + && \
+    find /omar-ai/omar-aid/root -type f -executable -exec chmod +x {} + && \
+    cp -a /omar-ai/omar-aid/root/. /
 
 RUN chown -R user:user /home/user
 RUN chmod -R 755 /home/user
@@ -243,7 +243,7 @@ WORKDIR /home/user
 # -----------------------------------------------------------------------------
 # 8. Port configuration and runtime
 # -----------------------------------------------------------------------------
-# - Port 9990: bytebotd and external noVNC websocket
+# - Port 9990: omar-aid and external noVNC websocket
 EXPOSE 9990
 
 # Start supervisor to manage all services

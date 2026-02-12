@@ -1,5 +1,5 @@
 apiVersion: v2
-name: bytebot-llm-proxy
+name: omar-ai-llm-proxy
 description: A Helm chart for LiteLLM proxy service
 type: application
 version: 0.1.0
@@ -10,6 +10,6 @@ keywords:
   - llm
   - ai
 maintainers:
-  - name: Bytebot Team
+  - name: OMAR AI Team
 sources:
-  - https://github.com/bytebot-ai/bytebot
+  - https://github.com/omar-ai-ai/omar-ai

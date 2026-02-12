@@ -1,7 +1,7 @@
 import { Message } from '@prisma/client';
-import { MessageContentBlock } from '@bytebot/shared';
+import { MessageContentBlock } from '@omar-ai/shared';
 
-export interface BytebotAgentResponse {
+export interface OMAR AIAgentResponse {
   contentBlocks: MessageContentBlock[];
   tokenUsage: {
     inputTokens: number;
@@ -10,26 +10,26 @@ export interface BytebotAgentResponse {
   };
 }
 
-export interface BytebotAgentService {
+export interface OMAR AIAgentService {
   generateMessage(
     systemPrompt: string,
     messages: Message[],
     model: string,
     useTools: boolean,
     signal?: AbortSignal,
-  ): Promise<BytebotAgentResponse>;
+  ): Promise<OMAR AIAgentResponse>;
 }
 
-export interface BytebotAgentModel {
+export interface OMAR AIAgentModel {
   provider: 'anthropic' | 'openai' | 'google' | 'proxy';
   name: string;
   title: string;
   contextWindow?: number;
 }
 
-export class BytebotAgentInterrupt extends Error {
+export class OMAR AIAgentInterrupt extends Error {
   constructor() {
-    super('BytebotAgentInterrupt');
-    this.name = 'BytebotAgentInterrupt';
+    super('OMAR AIAgentInterrupt');
+    this.name = 'OMAR AIAgentInterrupt';
   }
 }

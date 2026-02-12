@@ -1,6 +1,6 @@
 apiVersion: v2
-name: bytebot-agent
-description: A Helm chart for Bytebot Agent service
+name: omar-ai-agent
+description: A Helm chart for OMAR AI Agent service
 type: application
 version: 0.1.0
 appVersion: "edge"
@@ -10,10 +10,10 @@ dependencies:
     repository: "https://charts.bitnami.com/bitnami"
     condition: postgresql.enabled
 keywords:
-  - bytebot
+  - omar-ai
   - agent
   - api
 maintainers:
-  - name: Bytebot Team
+  - name: OMAR AI Team
 sources:
-  - https://github.com/bytebot-ai/bytebot
+  - https://github.com/omar-ai-ai/omar-ai

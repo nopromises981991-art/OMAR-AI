@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "bytebot-llm-proxy.fullname" . }}
+  name: {{ include "omar-ai-llm-proxy.fullname" . }}
   labels:
-    {{- include "bytebot-llm-proxy.labels" . | nindent 4 }}
+    {{- include "omar-ai-llm-proxy.labels" . | nindent 4 }}
   {{- with .Values.service.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -16,4 +16,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "bytebot-llm-proxy.selectorLabels" . | nindent 4 }}
+    {{- include "omar-ai-llm-proxy.selectorLabels" . | nindent 4 }}

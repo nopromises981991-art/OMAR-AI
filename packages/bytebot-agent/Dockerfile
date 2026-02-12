@@ -6,9 +6,9 @@ WORKDIR /app
 
 # Copy app source
 COPY ./shared ./shared
-COPY ./bytebot-agent/ ./bytebot-agent/
+COPY ./omar-ai-agent/ ./omar-ai-agent/
 
-WORKDIR /app/bytebot-agent
+WORKDIR /app/omar-ai-agent
 
 # Install dependencies
 RUN npm install

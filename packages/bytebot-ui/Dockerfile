@@ -14,9 +14,9 @@ WORKDIR /app
 
 # Copy app source
 COPY ./shared ./shared
-COPY ./bytebot-ui/ ./bytebot-ui
+COPY ./omar-ai-ui/ ./omar-ai-ui
 
-WORKDIR /app/bytebot-ui
+WORKDIR /app/omar-ai-ui
 
 # Install dependencies
 RUN npm install

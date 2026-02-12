@@ -17,20 +17,20 @@ import {
   RedactedThinkingContentBlock,
   ThinkingContentBlock,
   ToolUseContentBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 
 import {
   MessageContentBlock,
   MessageContentType,
   ToolResultContentBlock,
   TextContentBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 import { InputCaptureService } from './input-capture.service';
 import { OnEvent } from '@nestjs/event-emitter';
 import {
-  BytebotAgentModel,
-  BytebotAgentService,
-  BytebotAgentResponse,
+  OMAR AIAgentModel,
+  OMAR AIAgentService,
+  OMAR AIAgentResponse,
 } from './agent.types';
 import {
   AGENT_SYSTEM_PROMPT,

@@ -18,7 +18,7 @@ import { MessagesService } from '../messages/messages.service';
 import { ANTHROPIC_MODELS } from '../anthropic/anthropic.constants';
 import { OPENAI_MODELS } from '../openai/openai.constants';
 import { GOOGLE_MODELS } from '../google/google.constants';
-import { BytebotAgentModel } from 'src/agent/agent.types';
+import { OMAR AIAgentModel } from 'src/agent/agent.types';
 
 const geminiApiKey = process.env.GEMINI_API_KEY;
 const anthropicApiKey = process.env.ANTHROPIC_API_KEY;
@@ -86,8 +86,8 @@ export class TasksController {
 
         const proxyModels = await response.json();
 
-        // Map proxy response to BytebotAgentModel format
-        const models: BytebotAgentModel[] = proxyModels.data.map(
+        // Map proxy response to OMAR AIAgentModel format
+        const models: OMAR AIAgentModel[] = proxyModels.data.map(
           (model: any) => ({
             provider: 'proxy',
             name: model.litellm_params.model,

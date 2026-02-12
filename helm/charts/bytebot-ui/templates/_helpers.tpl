@@ -1,14 +1,14 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "bytebot-ui.name" -}}
+{{- define "omar-ai-ui.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Create a default fully qualified app name.
 */}}
-{{- define "bytebot-ui.fullname" -}}
+{{- define "omar-ai-ui.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -24,16 +24,16 @@ Create a default fully qualified app name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "bytebot-ui.chart" -}}
+{{- define "omar-ai-ui.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "bytebot-ui.labels" -}}
-helm.sh/chart: {{ include "bytebot-ui.chart" . }}
-{{ include "bytebot-ui.selectorLabels" . }}
+{{- define "omar-ai-ui.labels" -}}
+helm.sh/chart: {{ include "omar-ai-ui.chart" . }}
+{{ include "omar-ai-ui.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -43,17 +43,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "bytebot-ui.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "bytebot-ui.name" . }}
+{{- define "omar-ai-ui.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "omar-ai-ui.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "bytebot-ui.serviceAccountName" -}}
+{{- define "omar-ai-ui.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "bytebot-ui.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "omar-ai-ui.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

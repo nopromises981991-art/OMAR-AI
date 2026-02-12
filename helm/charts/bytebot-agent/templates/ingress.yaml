@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "bytebot-agent.fullname" . }}
+  name: {{ include "omar-ai-agent.fullname" . }}
   labels:
-    {{- include "bytebot-agent.labels" . | nindent 4 }}
+    {{- include "omar-ai-agent.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -33,7 +33,7 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ include "bytebot-agent.fullname" $ }}
+                name: {{ include "omar-ai-agent.fullname" $ }}
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}

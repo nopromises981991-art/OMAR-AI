@@ -1,14 +1,14 @@
 apiVersion: v2
-name: bytebot-ui
-description: A Helm chart for Bytebot UI service
+name: omar-ai-ui
+description: A Helm chart for OMAR AI UI service
 type: application
 version: 0.1.0
 appVersion: "edge"
 keywords:
-  - bytebot
+  - omar-ai
   - ui
   - frontend
 maintainers:
-  - name: Bytebot Team
+  - name: OMAR AI Team
 sources:
-  - https://github.com/bytebot-ai/bytebot
+  - https://github.com/omar-ai-ai/omar-ai

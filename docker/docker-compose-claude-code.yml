@@ -1,81 +1,81 @@
-name: bytebot
+name: omar-ai
 
 services:
-  bytebot-desktop:
+  omar-ai-desktop:
     # Build from source
     build:
       context: ../packages/
-      dockerfile: bytebotd/Dockerfile
+      dockerfile: omar-aid/Dockerfile
     # Use pre-built image
-    image: ghcr.io/bytebot-ai/bytebot-desktop:edge
+    image: ghcr.io/omar-ai-ai/omar-ai-desktop:edge
     shm_size: "2g"
-    container_name: bytebot-desktop
+    container_name: omar-ai-desktop
     restart: unless-stopped
     hostname: computer
     privileged: true
     ports:
-      - "9990:9990" # bytebotd service & noVNC
+      - "9990:9990" # omar-aid service & noVNC
     environment:
       - DISPLAY=:0
     networks:
-      - bytebot-network
+      - omar-ai-network
 
   postgres:
     image: postgres:16-alpine
-    container_name: bytebot-postgres
+    container_name: omar-ai-postgres
     restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=bytebotdb
+      - POSTGRES_DB=omar-aidb
     networks:
-      - bytebot-network
+      - omar-ai-network
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  bytebot-agent-cc:
+  omar-ai-agent-cc:
     build:
       context: ../packages/
-      dockerfile: bytebot-agent-cc/Dockerfile
-    container_name: bytebot-agent-cc
+      dockerfile: omar-ai-agent-cc/Dockerfile
+    container_name: omar-ai-agent-cc
     restart: unless-stopped
     ports:
       - "9991:9991"
     environment:
-      - DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/bytebotdb}
-      - BYTEBOT_DESKTOP_BASE_URL=${BYTEBOT_DESKTOP_BASE_URL:-http://bytebot-desktop:9990}
+      - DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@postgres:5432/omar-aidb}
+      - BYTEBOT_DESKTOP_BASE_URL=${BYTEBOT_DESKTOP_BASE_URL:-http://omar-ai-desktop:9990}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     depends_on:
       - postgres
     networks:
-      - bytebot-network
+      - omar-ai-network
 
-  bytebot-ui:
+  omar-ai-ui:
     build:
       context: ../packages/
-      dockerfile: bytebot-ui/Dockerfile
+      dockerfile: omar-ai-ui/Dockerfile
       args:
-        - BYTEBOT_AGENT_BASE_URL=${BYTEBOT_AGENT_BASE_URL:-http://bytebot-agent-cc:9991}
-        - BYTEBOT_DESKTOP_VNC_URL=${BYTEBOT_DESKTOP_VNC_URL:-http://bytebot-desktop:9990/websockify}
+        - BYTEBOT_AGENT_BASE_URL=${BYTEBOT_AGENT_BASE_URL:-http://omar-ai-agent-cc:9991}
+        - BYTEBOT_DESKTOP_VNC_URL=${BYTEBOT_DESKTOP_VNC_URL:-http://omar-ai-desktop:9990/websockify}
     # Use pre-built image
-    image: ghcr.io/bytebot-ai/bytebot-ui:edge
-    container_name: bytebot-ui
+    image: ghcr.io/omar-ai-ai/omar-ai-ui:edge
+    container_name: omar-ai-ui
     restart: unless-stopped
     ports:
       - "9992:9992"
     environment:
       - NODE_ENV=production
-      - BYTEBOT_AGENT_BASE_URL=${BYTEBOT_AGENT_BASE_URL:-http://bytebot-agent-cc:9991}
-      - BYTEBOT_DESKTOP_VNC_URL=${BYTEBOT_DESKTOP_VNC_URL:-http://bytebot-desktop:9990/websockify}
+      - BYTEBOT_AGENT_BASE_URL=${BYTEBOT_AGENT_BASE_URL:-http://omar-ai-agent-cc:9991}
+      - BYTEBOT_DESKTOP_VNC_URL=${BYTEBOT_DESKTOP_VNC_URL:-http://omar-ai-desktop:9990/websockify}
     depends_on:
-      - bytebot-agent-cc
+      - omar-ai-agent-cc
     networks:
-      - bytebot-network
+      - omar-ai-network
 
 networks:
-  bytebot-network:
+  omar-ai-network:
     driver: bridge
 
 volumes:

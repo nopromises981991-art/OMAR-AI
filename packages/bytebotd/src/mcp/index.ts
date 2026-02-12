@@ -1,1 +1,1 @@
-export * from './bytebot-mcp.module';
+export * from './omar-ai-mcp.module';

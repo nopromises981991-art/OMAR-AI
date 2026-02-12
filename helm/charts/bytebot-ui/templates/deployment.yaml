@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "bytebot-ui.fullname" . }}
+  name: {{ include "omar-ai-ui.fullname" . }}
   labels:
-    {{- include "bytebot-ui.labels" . | nindent 4 }}
+    {{- include "omar-ai-ui.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "bytebot-ui.selectorLabels" . | nindent 6 }}
+      {{- include "omar-ai-ui.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "bytebot-ui.selectorLabels" . | nindent 8 }}
+        {{- include "omar-ai-ui.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - name: {{ .Chart.Name }}

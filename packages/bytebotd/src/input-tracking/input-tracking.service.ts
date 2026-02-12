@@ -14,7 +14,7 @@ import {
   ScrollAction,
   TypeKeysAction,
   TypeTextAction,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 import { ComputerUseService } from '../computer-use/computer-use.service';
 import { InputTrackingGateway } from './input-tracking.gateway';
 import { keyInfoMap } from './input-tracking.helpers';

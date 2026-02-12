@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/bytebot-ai/bytebot-agent
+  repository: ghcr.io/omar-ai-ai/omar-ai-agent
   tag: edge
   pullPolicy: IfNotPresent
 
@@ -30,7 +30,7 @@ affinity: {}
 
 env:
   DATABASE_URL: ""
-  BYTEBOT_DESKTOP_BASE_URL: "http://bytebot-desktop:9990"
+  BYTEBOT_DESKTOP_BASE_URL: "http://omar-ai-desktop:9990"
   BYTEBOT_LLM_PROXY_URL: ""
   # Legacy API key values for backward compatibility
   ANTHROPIC_API_KEY: ""
@@ -56,8 +56,8 @@ apiKeys:
     value: ""  # Only used if useExisting is false
 
 config:
-  databaseUrl: "postgresql://postgres:postgres@bytebot-postgresql:5432/bytebotdb"
-  bytebotDesktopUrl: "http://bytebot-desktop:9990"
+  databaseUrl: "postgresql://postgres:postgres@omar-ai-postgresql:5432/omar-aidb"
+  omar-aiDesktopUrl: "http://omar-ai-desktop:9990"
   llmProxyUrl: ""
 
 ingress:
@@ -65,7 +65,7 @@ ingress:
   className: ""
   annotations: {}
   hosts:
-    - host: bytebot-agent.local
+    - host: omar-ai-agent.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -76,7 +76,7 @@ postgresql:
   auth:
     username: postgres
     password: postgres
-    database: bytebotdb
+    database: omar-aidb
   service:
     port: 5432
   primary:
@@ -87,7 +87,7 @@ postgresql:
 externalDatabase:
   host: ""
   port: 5432
-  database: bytebotdb
+  database: omar-aidb
   username: postgres
   password: postgres
   existingSecret: ""

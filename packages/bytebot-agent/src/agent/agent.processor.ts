@@ -15,22 +15,22 @@ import {
   isSetTaskStatusToolUseBlock,
   isCreateTaskToolUseBlock,
   SetTaskStatusToolUseBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 
 import {
   MessageContentBlock,
   MessageContentType,
   ToolResultContentBlock,
   TextContentBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 import { InputCaptureService } from './input-capture.service';
 import { OnEvent } from '@nestjs/event-emitter';
 import { OpenAIService } from '../openai/openai.service';
 import { GoogleService } from '../google/google.service';
 import {
-  BytebotAgentModel,
-  BytebotAgentService,
-  BytebotAgentResponse,
+  OMAR AIAgentModel,
+  OMAR AIAgentService,
+  OMAR AIAgentResponse,
 } from './agent.types';
 import {
   AGENT_SYSTEM_PROMPT,
@@ -46,7 +46,7 @@ export class AgentProcessor {
   private currentTaskId: string | null = null;
   private isProcessing = false;
   private abortController: AbortController | null = null;
-  private services: Record<string, BytebotAgentService> = {};
+  private services: Record<string, OMAR AIAgentService> = {};
 
   constructor(
     private readonly tasksService: TasksService,
@@ -182,8 +182,8 @@ export class AgentProcessor {
         `Sending ${messages.length} messages to LLM for processing`,
       );
 
-      const model = task.model as unknown as BytebotAgentModel;
-      let agentResponse: BytebotAgentResponse;
+      const model = task.model as unknown as OMAR AIAgentModel;
+      let agentResponse: OMAR AIAgentResponse;
 
       const service = this.services[model.provider];
       if (!service) {
@@ -386,7 +386,7 @@ export class AgentProcessor {
         setImmediate(() => this.runIteration(taskId));
       }
     } catch (error: any) {
-      if (error?.name === 'BytebotAgentInterrupt') {
+      if (error?.name === 'OMAR AIAgentInterrupt') {
         this.logger.warn(`Processing aborted for task ID: ${taskId}`);
       } else {
         this.logger.error(

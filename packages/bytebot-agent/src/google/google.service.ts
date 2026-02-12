@@ -9,11 +9,11 @@ import {
   TextContentBlock,
   ThinkingContentBlock,
   ToolUseContentBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 import {
-  BytebotAgentService,
-  BytebotAgentInterrupt,
-  BytebotAgentResponse,
+  OMAR AIAgentService,
+  OMAR AIAgentInterrupt,
+  OMAR AIAgentResponse,
 } from '../agent/agent.types';
 import { Message, Role } from '@prisma/client';
 import { googleTools } from './google.tools';
@@ -27,7 +27,7 @@ import { v4 as uuid } from 'uuid';
 import { DEFAULT_MODEL } from './google.constants';
 
 @Injectable()
-export class GoogleService implements BytebotAgentService {
+export class GoogleService implements OMAR AIAgentService {
   private readonly google: GoogleGenAI;
   private readonly logger = new Logger(GoogleService.name);
 
@@ -51,7 +51,7 @@ export class GoogleService implements BytebotAgentService {
     model: string = DEFAULT_MODEL.name,
     useTools: boolean = true,
     signal?: AbortSignal,
-  ): Promise<BytebotAgentResponse> {
+  ): Promise<OMAR AIAgentResponse> {
     try {
       const maxTokens = 8192;
 
@@ -105,7 +105,7 @@ export class GoogleService implements BytebotAgentService {
       };
     } catch (error) {
       if (error.message.includes('AbortError')) {
-        throw new BytebotAgentInterrupt();
+        throw new OMAR AIAgentInterrupt();
       }
       this.logger.error(
         `Error sending message to Google Gemini: ${error.message}`,

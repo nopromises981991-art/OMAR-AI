@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Bytebot - Self-Hosted AI Desktop Agent",
+  "name": "OMAR AI - Self-Hosted AI Desktop Agent",
   "colors": {
     "primary": "#000000",
     "light": "#fbfaf9",
@@ -72,7 +72,7 @@
       "anchors": [
         {
           "anchor": "GitHub",
-          "href": "https://github.com/bytebot-ai/bytebot",
+          "href": "https://github.com/omar-ai-ai/omar-ai",
           "icon": "github"
         },
         {
@@ -82,20 +82,20 @@
         },
         {
           "anchor": "Twitter",
-          "href": "https://x.com/bytebot_ai",
+          "href": "https://x.com/omar-ai_ai",
           "icon": "twitter"
         },
         {
           "anchor": "Blog",
-          "href": "https://bytebot.ai/blog",
+          "href": "https://omar-ai.ai/blog",
           "icon": "newspaper"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/bytebot_transparent_logo_dark.svg",
-    "dark": "/logo/bytebot_transparent_logo_white.svg"
+    "light": "/logo/omar-ai_transparent_logo_dark.svg",
+    "dark": "/logo/omar-ai_transparent_logo_white.svg"
   },
   "navbar": {
     "links": [
@@ -107,18 +107,18 @@
     "primary": {
       "type": "button",
       "label": "Get Started",
-      "href": "https://github.com/bytebot-ai/bytebot"
+      "href": "https://github.com/omar-ai-ai/omar-ai"
     }
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/bytebot-ai/bytebot",
-      "twitter": "https://twitter.com/bytebotai",
+      "github": "https://github.com/omar-ai-ai/omar-ai",
+      "twitter": "https://twitter.com/omar-aiai",
       "discord": "https://discord.gg/zcb5wA2t4u"
     }
   },
   "metadata": {
-    "og:title": "Bytebot - Self-Hosted AI Desktop Agent",
+    "og:title": "OMAR AI - Self-Hosted AI Desktop Agent",
     "og:description": "Automate any computer task with natural language using your own AI desktop agent",
     "og:image": "/images/agent-architecture.png",
     "twitter:card": "summary_large_image"

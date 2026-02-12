@@ -11,18 +11,18 @@ import {
   isUserActionContentBlock,
   isComputerToolUseContentBlock,
   isImageContentBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 import { DEFAULT_MODEL } from './openai.constants';
 import { Message, Role } from '@prisma/client';
 import { openaiTools } from './openai.tools';
 import {
-  BytebotAgentService,
-  BytebotAgentInterrupt,
-  BytebotAgentResponse,
+  OMAR AIAgentService,
+  OMAR AIAgentInterrupt,
+  OMAR AIAgentResponse,
 } from '../agent/agent.types';
 
 @Injectable()
-export class OpenAIService implements BytebotAgentService {
+export class OpenAIService implements OMAR AIAgentService {
   private readonly openai: OpenAI;
   private readonly logger = new Logger(OpenAIService.name);
 
@@ -46,7 +46,7 @@ export class OpenAIService implements BytebotAgentService {
     model: string = DEFAULT_MODEL.name,
     useTools: boolean = true,
     signal?: AbortSignal,
-  ): Promise<BytebotAgentResponse> {
+  ): Promise<OMAR AIAgentResponse> {
     const isReasoning = model.startsWith('o');
     try {
       const openaiMessages = this.formatMessagesForOpenAI(messages);
@@ -80,7 +80,7 @@ export class OpenAIService implements BytebotAgentService {
 
       if (error instanceof APIUserAbortError) {
         this.logger.log('OpenAI API call aborted');
-        throw new BytebotAgentInterrupt();
+        throw new OMAR AIAgentInterrupt();
       }
       this.logger.error(
         `Error sending message to OpenAI: ${error.message}`,

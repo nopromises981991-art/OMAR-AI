@@ -1,14 +1,14 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "bytebot-agent.name" -}}
+{{- define "omar-ai-agent.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Create a default fully qualified app name.
 */}}
-{{- define "bytebot-agent.fullname" -}}
+{{- define "omar-ai-agent.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -24,16 +24,16 @@ Create a default fully qualified app name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "bytebot-agent.chart" -}}
+{{- define "omar-ai-agent.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "bytebot-agent.labels" -}}
-helm.sh/chart: {{ include "bytebot-agent.chart" . }}
-{{ include "bytebot-agent.selectorLabels" . }}
+{{- define "omar-ai-agent.labels" -}}
+helm.sh/chart: {{ include "omar-ai-agent.chart" . }}
+{{ include "omar-ai-agent.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -43,17 +43,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "bytebot-agent.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "bytebot-agent.name" . }}
+{{- define "omar-ai-agent.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "omar-ai-agent.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "bytebot-agent.serviceAccountName" -}}
+{{- define "omar-ai-agent.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "bytebot-agent.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "omar-ai-agent.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -62,7 +62,7 @@ Create the name of the service account to use
 {{/*
 Create a default database URL
 */}}
-{{- define "bytebot-agent.databaseUrl" -}}
+{{- define "omar-ai-agent.databaseUrl" -}}
 {{- if .Values.postgresql.enabled }}
 {{- printf "postgresql://%s:%s@%s-postgresql:%d/%s" .Values.postgresql.auth.username .Values.postgresql.auth.password .Release.Name (.Values.postgresql.service.port | int) .Values.postgresql.auth.database }}
 {{- else if .Values.externalDatabase.host }}

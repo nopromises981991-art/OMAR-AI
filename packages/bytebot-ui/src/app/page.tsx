@@ -26,9 +26,9 @@ const StockPhoto: React.FC<StockPhotoProps> = ({
   alt = "Decorative image",
 }) => {
   return (
-    <div className="h-full w-full overflow-hidden rounded-lg bg-white">
+    <div className="h-full w-full overflow-hidden rounded-lg bg-gray-900 omar-glow">
       <div className="relative h-full w-full">
-        <Image src={src} alt={alt} fill className="object-cover" priority />
+        <Image src={src} alt={alt} fill className="object-cover opacity-80" priority />
       </div>
     </div>
   );
@@ -137,7 +137,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden">
+    <div className="flex h-screen flex-col overflow-hidden bg-background text-foreground">
       <Header />
 
       <main className="flex flex-1 flex-col overflow-hidden">
@@ -147,12 +147,13 @@ export default function Home() {
           <div className="flex flex-col items-center overflow-y-auto">
             <div className="flex w-full max-w-xl flex-col items-center">
               <div className="mb-6 flex w-full flex-col items-start justify-start">
-                <h1 className="text-bytebot-bronze-light-12 mb-1 text-2xl">
-                  What can I help you get done?
+                <h1 className="mb-1 text-3xl font-bold text-white">
+                  OMAR AI
                 </h1>
+                <p className="text-gray-400">How can I assist you today?</p>
               </div>
 
-              <div className="bg-bytebot-bronze-light-2 border-bytebot-bronze-light-7 mb-10 w-full rounded-2xl border p-2">
+              <div className="mb-10 w-full rounded-2xl border border-gray-700 bg-gray-800/50 p-2 omar-glow">
                 <ChatInput
                   input={input}
                   isLoading={isLoading}
@@ -170,10 +171,10 @@ export default function Home() {
                       )
                     }
                   >
-                    <SelectTrigger className="w-auto">
+                    <SelectTrigger className="w-auto bg-gray-700 border-gray-600 text-white">
                       <SelectValue placeholder="Select a model" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-gray-800 border-gray-700 text-white">
                       {models.map((m) => (
                         <SelectItem key={m.name} value={m.name}>
                           {m.title}
@@ -187,7 +188,7 @@ export default function Home() {
               <TaskList
                 className="w-full"
                 title="Latest Tasks"
-                description="You'll see tasks that are completed, scheduled, or require your attention."
+                description="Your recent activities and tasks."
               />
             </div>
           </div>
@@ -195,7 +196,7 @@ export default function Home() {
           {/* Stock photo area - centered in its grid cell */}
           <div className="flex items-center justify-center px-6 pt-6">
             <div className="aspect-square h-full w-full max-w-md xl:max-w-2xl">
-              <StockPhoto src="/stock-1.png" alt="Bytebot stock image" />
+              <StockPhoto src="/stock-1.png" alt="OMAR AI stock image" />
             </div>
           </div>
         </div>
@@ -205,12 +206,13 @@ export default function Home() {
           <div className="flex flex-1 flex-col items-center overflow-y-auto px-4 pt-10">
             <div className="flex w-full max-w-xl flex-col items-center pb-10">
               <div className="mb-6 flex w-full flex-col items-start justify-start">
-                <h1 className="text-bytebot-bronze-light-12 mb-1 text-2xl">
-                  What can I help you get done?
+                <h1 className="mb-1 text-3xl font-bold text-white">
+                  OMAR AI
                 </h1>
+                <p className="text-gray-400">How can I assist you today?</p>
               </div>
 
-              <div className="bg-bytebot-bronze-light-2 border-bytebot-bronze-light-5 borderw-full mb-10 rounded-2xl p-2">
+              <div className="mb-10 w-full rounded-2xl border border-gray-700 bg-gray-800/50 p-2 omar-glow">
                 <ChatInput
                   input={input}
                   isLoading={isLoading}
@@ -228,10 +230,10 @@ export default function Home() {
                       )
                     }
                   >
-                    <SelectTrigger className="w-auto">
+                    <SelectTrigger className="w-auto bg-gray-700 border-gray-600 text-white">
                       <SelectValue placeholder="Select a model" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-gray-800 border-gray-700 text-white">
                       {models.map((m) => (
                         <SelectItem key={m.name} value={m.name}>
                           {m.title}
@@ -245,7 +247,7 @@ export default function Home() {
               <TaskList
                 className="w-full"
                 title="Latest Tasks"
-                description="You'll see tasks that are completed, scheduled, or require your attention."
+                description="Your recent activities and tasks."
               />
             </div>
           </div>

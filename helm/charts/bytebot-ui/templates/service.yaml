@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "bytebot-ui.fullname" . }}
+  name: {{ include "omar-ai-ui.fullname" . }}
   labels:
-    {{- include "bytebot-ui.labels" . | nindent 4 }}
+    {{- include "omar-ai-ui.labels" . | nindent 4 }}
   {{- with .Values.service.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -16,4 +16,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "bytebot-ui.selectorLabels" . | nindent 4 }}
+    {{- include "omar-ai-ui.selectorLabels" . | nindent 4 }}

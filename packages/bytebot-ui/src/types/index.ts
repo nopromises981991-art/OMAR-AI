@@ -1,4 +1,4 @@
-import { MessageContentBlock } from "@bytebot/shared";
+import { MessageContentBlock } from "@omar-ai/shared";
 
 export enum Role {
   USER = "USER",

@@ -1,15 +1,15 @@
 apiVersion: v2
-name: bytebot-desktop
-description: A Helm chart for Bytebot Desktop service
+name: omar-ai-desktop
+description: A Helm chart for OMAR AI Desktop service
 type: application
 version: 0.1.0
 appVersion: "edge"
 keywords:
-  - bytebot
+  - omar-ai
   - desktop
   - vnc
   - remote-desktop
 maintainers:
-  - name: Bytebot Team
+  - name: OMAR AI Team
 sources:
-  - https://github.com/bytebot-ai/bytebot
+  - https://github.com/omar-ai-ai/omar-ai

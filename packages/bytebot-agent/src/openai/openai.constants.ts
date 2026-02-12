@@ -1,6 +1,6 @@
-import { BytebotAgentModel } from 'src/agent/agent.types';
+import { OMAR AIAgentModel } from 'src/agent/agent.types';
 
-export const OPENAI_MODELS: BytebotAgentModel[] = [
+export const OPENAI_MODELS: OMAR AIAgentModel[] = [
   {
     provider: 'openai',
     name: 'o3-2025-04-16',

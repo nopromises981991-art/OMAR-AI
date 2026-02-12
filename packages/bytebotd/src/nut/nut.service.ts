@@ -127,7 +127,7 @@ export class NutService {
     keyboard.config.autoDelayMs = 100;
 
     // Create screenshot directory if it doesn't exist
-    this.screenshotDir = path.join('/tmp', 'bytebot-screenshots');
+    this.screenshotDir = path.join('/tmp', 'omar-ai-screenshots');
     import('fs').then((fs) => {
       fs.promises
         .mkdir(this.screenshotDir, { recursive: true })

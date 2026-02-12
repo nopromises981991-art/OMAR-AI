@@ -1,6 +1,6 @@
-import { BytebotAgentModel } from '../agent/agent.types';
+import { OMAR AIAgentModel } from '../agent/agent.types';
 
-export const GOOGLE_MODELS: BytebotAgentModel[] = [
+export const GOOGLE_MODELS: OMAR AIAgentModel[] = [
   {
     provider: 'google',
     name: 'gemini-2.5-pro',

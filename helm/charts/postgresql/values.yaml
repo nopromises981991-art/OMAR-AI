@@ -38,7 +38,7 @@ affinity: {}
 auth:
   username: postgres
   password: postgres
-  database: bytebotdb
+  database: omar-aidb
 
 config:
   maxConnections: 100

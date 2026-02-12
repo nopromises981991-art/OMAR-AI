@@ -10,18 +10,18 @@ import {
   RedactedThinkingContentBlock,
   isUserActionContentBlock,
   isComputerToolUseContentBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 import { DEFAULT_MODEL } from './anthropic.constants';
 import { Message, Role } from '@prisma/client';
 import { anthropicTools } from './anthropic.tools';
 import {
-  BytebotAgentService,
-  BytebotAgentInterrupt,
-  BytebotAgentResponse,
+  OMAR AIAgentService,
+  OMAR AIAgentInterrupt,
+  OMAR AIAgentResponse,
 } from '../agent/agent.types';
 
 @Injectable()
-export class AnthropicService implements BytebotAgentService {
+export class AnthropicService implements OMAR AIAgentService {
   private readonly anthropic: Anthropic;
   private readonly logger = new Logger(AnthropicService.name);
 
@@ -45,7 +45,7 @@ export class AnthropicService implements BytebotAgentService {
     model: string = DEFAULT_MODEL.name,
     useTools: boolean = true,
     signal?: AbortSignal,
-  ): Promise<BytebotAgentResponse> {
+  ): Promise<OMAR AIAgentResponse> {
     try {
       const maxTokens = 8192;
 
@@ -91,7 +91,7 @@ export class AnthropicService implements BytebotAgentService {
 
       if (error instanceof APIUserAbortError) {
         this.logger.log('Anthropic API call aborted');
-        throw new BytebotAgentInterrupt();
+        throw new OMAR AIAgentInterrupt();
       }
       this.logger.error(
         `Error sending message to Anthropic: ${error.message}`,

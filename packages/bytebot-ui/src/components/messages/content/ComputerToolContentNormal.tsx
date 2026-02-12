@@ -11,7 +11,7 @@ import {
   Application,
   isPasteTextToolUseBlock,
   isReadFileToolUseBlock,
-} from "@bytebot/shared";
+} from "@omar-ai/shared";
 import { getIcon, getLabel } from "./ComputerToolUtils";
 
 interface ComputerToolContentNormalProps {
@@ -30,7 +30,7 @@ const applicationMap: Record<Application, string> = {
 
 function ToolDetailsNormal({ block }: { block: ComputerToolUseContentBlock }) {
   const baseClasses =
-    "px-1 py-0.5 text-[12px] text-bytebot-bronze-light-11 bg-bytebot-red-light-1 border border-bytebot-bronze-light-7 rounded-md";
+    "px-1 py-0.5 text-[12px] text-omar-ai-bronze-light-11 bg-omar-ai-red-light-1 border border-omar-ai-bronze-light-7 rounded-md";
 
   return (
     <>
@@ -109,9 +109,9 @@ export function ComputerToolContentNormal({
       <div className="flex items-center gap-2">
         <HugeiconsIcon
           icon={getIcon(block)}
-          className="text-bytebot-bronze-dark-9 h-4 w-4"
+          className="text-omar-ai-bronze-dark-9 h-4 w-4"
         />
-        <p className="text-bytebot-bronze-light-11 text-xs">
+        <p className="text-omar-ai-bronze-light-11 text-xs">
           {getLabel(block)}
         </p>
         <ToolDetailsNormal block={block} />

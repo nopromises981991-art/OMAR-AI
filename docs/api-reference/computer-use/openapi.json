@@ -1,9 +1,9 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Bytebot Computer Use API",
+    "title": "OMAR AI Computer Use API",
     "version": "1.0.0",
-    "description": "Control the Bytebot virtual desktop via a single endpoint"
+    "description": "Control the OMAR AI virtual desktop via a single endpoint"
   },
   "paths": {
     "/computer-use": {

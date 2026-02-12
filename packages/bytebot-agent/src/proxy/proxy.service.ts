@@ -16,17 +16,17 @@ import {
   isComputerToolUseContentBlock,
   isImageContentBlock,
   ThinkingContentBlock,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 import { Message, Role } from '@prisma/client';
 import { proxyTools } from './proxy.tools';
 import {
-  BytebotAgentService,
-  BytebotAgentInterrupt,
-  BytebotAgentResponse,
+  OMAR AIAgentService,
+  OMAR AIAgentInterrupt,
+  OMAR AIAgentResponse,
 } from '../agent/agent.types';
 
 @Injectable()
-export class ProxyService implements BytebotAgentService {
+export class ProxyService implements OMAR AIAgentService {
   private readonly openai: OpenAI;
   private readonly logger = new Logger(ProxyService.name);
 
@@ -55,7 +55,7 @@ export class ProxyService implements BytebotAgentService {
     model: string,
     useTools: boolean = true,
     signal?: AbortSignal,
-  ): Promise<BytebotAgentResponse> {
+  ): Promise<OMAR AIAgentResponse> {
     // Convert messages to Chat Completion format
     const chatMessages = this.formatMessagesForChatCompletion(
       systemPrompt,
@@ -97,7 +97,7 @@ export class ProxyService implements BytebotAgentService {
     } catch (error: any) {
       if (error instanceof APIUserAbortError) {
         this.logger.log('Chat Completion API call aborted');
-        throw new BytebotAgentInterrupt();
+        throw new OMAR AIAgentInterrupt();
       }
 
       this.logger.error(
@@ -109,7 +109,7 @@ export class ProxyService implements BytebotAgentService {
   }
 
   /**
-   * Convert Bytebot messages to Chat Completion format
+   * Convert OMAR AI messages to Chat Completion format
    */
   private formatMessagesForChatCompletion(
     systemPrompt: string,

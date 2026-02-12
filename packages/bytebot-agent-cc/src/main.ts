@@ -9,7 +9,7 @@ if (!globalThis.crypto) {
 }
 
 async function bootstrap() {
-  console.log('Starting bytebot-agent application...');
+  console.log('Starting omar-ai-agent application...');
 
   try {
     const app = await NestFactory.create(AppModule);

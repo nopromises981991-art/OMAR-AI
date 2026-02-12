@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@bytebot/shared"],
+  transpilePackages: ["@omar-ai/shared"],
 };
 
 export default nextConfig;

@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "bytebot-desktop.fullname" . }}
+  name: {{ include "omar-ai-desktop.fullname" . }}
   labels:
-    {{- include "bytebot-desktop.labels" . | nindent 4 }}
+    {{- include "omar-ai-desktop.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "bytebot-desktop.selectorLabels" . | nindent 6 }}
+      {{- include "omar-ai-desktop.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "bytebot-desktop.selectorLabels" . | nindent 8 }}
+        {{- include "omar-ai-desktop.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
@@ -49,7 +49,7 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: {{ include "bytebot-desktop.fullname" . }}
+          claimName: {{ include "omar-ai-desktop.fullname" . }}
       {{- end }}
       {{- if .Values.shm.enabled }}
       volumes:

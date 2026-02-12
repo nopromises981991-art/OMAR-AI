@@ -20,7 +20,7 @@ import {
   PasteTextAction,
   WriteFileAction,
   ReadFileAction,
-} from '@bytebot/shared';
+} from '@omar-ai/shared';
 
 @Injectable()
 export class ComputerUseService {
@@ -386,7 +386,7 @@ export class ComputerUseService {
       }
 
       // Write to a temporary file first
-      const tempFile = `/tmp/bytebot_temp_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+      const tempFile = `/tmp/omar-ai_temp_${Date.now()}_${Math.random().toString(36).substring(7)}`;
       await fs.writeFile(tempFile, buffer);
 
       // Move the file to the target location using sudo
@@ -434,7 +434,7 @@ export class ComputerUseService {
       }
 
       // Copy file to temp location using sudo to read it
-      const tempFile = `/tmp/bytebot_read_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+      const tempFile = `/tmp/omar-ai_read_${Date.now()}_${Math.random().toString(36).substring(7)}`;
 
       try {
         // Copy the file to a temporary location we can read

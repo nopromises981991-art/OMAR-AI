@@ -1,6 +1,6 @@
 apiVersion: v2
-name: bytebot
-description: Bytebot - Complete deployment package
+name: omar-ai
+description: OMAR AI - Complete deployment package
 type: application
 version: 0.1.0
 appVersion: "edge"
@@ -9,24 +9,24 @@ dependencies:
     version: 0.1.0
     repository: file://./charts/postgresql
     condition: postgresql.enabled
-  - name: bytebot-desktop
+  - name: omar-ai-desktop
     version: 0.1.0
-    repository: file://./charts/bytebot-desktop
-  - name: bytebot-agent
+    repository: file://./charts/omar-ai-desktop
+  - name: omar-ai-agent
     version: 0.1.0
-    repository: file://./charts/bytebot-agent
-  - name: bytebot-ui
+    repository: file://./charts/omar-ai-agent
+  - name: omar-ai-ui
     version: 0.1.0
-    repository: file://./charts/bytebot-ui
-  - name: bytebot-llm-proxy
+    repository: file://./charts/omar-ai-ui
+  - name: omar-ai-llm-proxy
     version: 0.1.0
-    repository: file://./charts/bytebot-llm-proxy
-    condition: bytebot-llm-proxy.enabled
+    repository: file://./charts/omar-ai-llm-proxy
+    condition: omar-ai-llm-proxy.enabled
 keywords:
-  - bytebot
+  - omar-ai
   - automation
   - remote-desktop
 maintainers:
-  - name: Bytebot Team
+  - name: OMAR AI Team
 sources:
-  - https://github.com/bytebot-ai/bytebot
+  - https://github.com/omar-ai-ai/omar-ai

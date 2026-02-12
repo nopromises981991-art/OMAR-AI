@@ -60,9 +60,9 @@ export const TopicPopover: React.FC<TopicPopoverProps> = ({
     // Get the existing className
     const existingClassName = element.props.className || '';
     
-    // Replace text-bytebot-bronze-light-11 with text-bytebot-bronze-light-12 when open
+    // Replace text-omar-ai-bronze-light-11 with text-omar-ai-bronze-light-12 when open
     const updatedClassName = isOpen 
-      ? existingClassName.replace('text-bytebot-bronze-light-11', 'text-bytebot-bronze-light-12')
+      ? existingClassName.replace('text-omar-ai-bronze-light-11', 'text-omar-ai-bronze-light-12')
       : existingClassName;
     
     // Clone the element with the updated className
@@ -74,7 +74,7 @@ export const TopicPopover: React.FC<TopicPopoverProps> = ({
 
   return (
     <div className="relative" ref={popoverRef}>
-      <div onClick={handleToggle} className={isOpen ? "bg-bytebot-bronze-light-1 rounded-full" : ""}>
+      <div onClick={handleToggle} className={isOpen ? "bg-omar-ai-bronze-light-1 rounded-full" : ""}>
         {modifiedChildren}
       </div>
     </div>
